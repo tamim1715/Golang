@@ -29,12 +29,13 @@ func main(){
 	data := Customer{}
 
 	e.POST("/api/v1/customers", data.Save)
+	e.GET("/api/v1/customers", data.Find)
 	e.GET("/api/v1/customers:id", data.FindByID)
 	e.PUT("/api/v1/customers:id", data.Update)
 	e.PATCH("/api/v1/customers:id", data.Patch)
 	e.DELETE("/api/v1/customers:id", data.Delete)
 
-	e.Logger.Fatal(e.Start(":8000"))
+	e.Logger.Fatal(e.Start(":8080"))
 
 }
 
@@ -48,6 +49,12 @@ func  (data Customer) Save(c echo.Context) error{
 
 	return c.JSON(http.StatusOK, "Save Information")
 }
+
+
+func (data Customer) Find(c echo.Context) error {
+	return c.JSON(http.StatusOK, mpDTO)
+}
+
 
 func (data Customer) FindByID(c echo.Context) error {
 	id :=c.Param("id")

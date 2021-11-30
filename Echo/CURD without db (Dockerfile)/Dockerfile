@@ -8,8 +8,8 @@ RUN go mod download
 
 COPY *.go ./
 
-RUN go build -o /restapigo
+RUN go build -o /customers
 
-EXPOSE  8000
+EXPOSE  8080
 
-CMD ["/restapigo"]
+CMD ["/customers"]
