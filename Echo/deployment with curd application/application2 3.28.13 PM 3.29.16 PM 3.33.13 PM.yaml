@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  labels:
+    name: appmatch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: appmatch
+  template:
+    metadata:
+      labels:
+        name: appmatch
+    spec:
+      containers:
+        - image: tamim447/localcontainer1
+          imagePullPolicy: Always
+          name: localcontainer1
+          ports:
+            - containerPort: 8080
