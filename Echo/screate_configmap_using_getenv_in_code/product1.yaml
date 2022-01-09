@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product
+  labels:
+    name: productmatch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: productmatch
+  template:
+    metadata:
+      labels:
+        name: productmatch
+    spec:
+      containers:
+        - image: tamim447/product2
+          imagePullPolicy: Always
+          name: product2
+          ports:
+            - containerPort: 8000

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: productservice
+spec:
+  selector:
+    name: productmatch
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000

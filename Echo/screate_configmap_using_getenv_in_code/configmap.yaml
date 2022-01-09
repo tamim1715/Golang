@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myconfigmap
+data:
+  MONGO_SERVICE: mongoservice
+  MONGO_PORT: '27017'

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer
+  labels:
+    name: customermatch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: customermatch
+  template:
+    metadata:
+      labels:
+        name: customermatch
+    spec:
+      containers:
+        - image: tamim447/customer3
+          imagePullPolicy: Always
+          name: customer
+          ports:
+            - containerPort: 8081
+          envFrom:
+            - secretRef:
+                name: mysecret
+            - configMapRef:
+                name: myconfigmap
