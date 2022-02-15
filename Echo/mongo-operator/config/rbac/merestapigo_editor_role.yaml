@@ -1,0 +1,24 @@
+# permissions for end users to edit merestapigoes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: merestapigo-editor-role
+rules:
+- apiGroups:
+  - cache.my.domain
+  resources:
+  - merestapigoes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - cache.my.domain
+  resources:
+  - merestapigoes/status
+  verbs:
+  - get
